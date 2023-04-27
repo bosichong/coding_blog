@@ -20,7 +20,9 @@
 ### 安装教程
 
 1. 首先克隆下载本主题到碎言静态博客程序`theme`目录下。
-2. 修改配置文件 `config.json`中的"theme": "coding_blog",即可启用。
+2. 复制主题目录下的`config_.json`到主目录下。
+3. 更换`s.py`中的配置项`APP_CONFIG = "config_my.json"`为当前的配置文件
+4. 修改配置文件 `config_.json`中的"theme": "coding_blog",即可启用。
 
 
 ### 运行预览
