@@ -1,0 +1,60 @@
+<div class="d-flex flex-column">
+    <div class="profile">
+        <img src="{{ site_url }}{{ profile_image }}" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="{{ site_url }}">{{ blog_author }}</a></h1>
+        <div class="social-links mt-3 text-center">
+            {% for sns in blog_sns %}
+            <a href="{{ sns.url }}" target="_blank"><i class="bi bi-{{ sns.ico }}"></i></a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <nav id="navbar" class="nav-menu navbar">
+        <ul>
+            {% for nav in nav %}
+            <li><a href="{{ site_url }}{{ nav.url }}" class="nav-link scrollto active"><i class="bi bi-{{ nav.ico }}"></i>
+                <span>{{ nav.text }}</span></a></li>
+            {% endfor %}
+        </ul>
+    </nav><!-- .nav-menu -->
+</div>
+
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <input class="form-control" id="search-input" type="text" placeholder="JavaScript">
+                </div>
+                <div class="col-4">
+                    <button type="button" id="search-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">搜索</button>
+                </div>
+              </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">搜索结果</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <article>
+                            <a href="#close"
+                               aria-label="Close"
+                               class="close"
+                               data-target="modal-example"
+                               onClick="toggleModal(event)">
+                            </a>
+                            <div id="modal" style="display: none;">
+                                <ul id="result-list"></ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>

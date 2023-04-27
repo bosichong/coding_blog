@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}-{{ title }}{% endblock %}
+{% block keywords %} {{ meta_keywords }}{% endblock %}
+{% block description %}{{ blog_name }}-文章归档{% endblock %}
+{% block article %}
+
+    <header class="entry-header">
+        <h1 class="single-title">
+            文章归档
+        </h1>
+        <div class="archives-meta">
+      <span class="meta">
+       共有文章:{{ pages_num }}篇,最后更新:{{ update}}
+      </span>
+        </div>
+    </header>
+    <br>
+<div class="accordion" id="accordionExample">
+{% for ar in archives  %}
+<div class="accordion-item">
+  <h2 class="accordion-header" id="heading{{ loop.index }}">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapseTwo">
+      {{ ar.date }} (共{{ ar.num}}篇文章)
+    </button>
+  </h2>
+  <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <ul class="list-group">
+        {% for a in ar.data %}
+        <li class="list-group-item">
+            <a href="{{ site_url }}{{a.url}}.html" target="_blank">
+           {{ a.title }}
+          </a>
+            <span>
+           {{ a.time }}
+          </span>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}-{{ title }}{% endblock %}
+{% block keywords %} {{ meta_keywords }}{% endblock %}
+{% block description %}{{ blog_name }}-Tag 标签{% endblock %}
+{% block article %}
+
+    <header class="entry-header">
+     <h1 class="single-title">
+      TAGS
+     </h1>
+        <div class="archives-meta">
+      <span class="meta">
+       共有标签:{{ tag_num }}个
+      </span>
+        </div>
+    </header>
+    <br>
+
+    <div class="accordion" id="accordionExample">
+      {% for tag in tags  %}
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ loop.index }}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapseTwo">
+            {{ tag.tag }}
+          </button>
+        </h2>
+        <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="list-group">
+              {% for a in tag.data %}
+              <li class="list-group-item">
+                  <a href="{{ site_url }}{{a.url}}.html" target="_blank">
+                 {{ a.title }}
+                </a>
+                  <span>
+                 {{ a.time }}
+                </span>
+              </li>
+              {% endfor %}
+          </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+
+{% endblock %}
