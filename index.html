@@ -1,65 +1,58 @@
-{% extends "layout.html" %}
-{% block title %}-{{ title }}{% endblock %}
-{% block keywords %}{{ meta_keywords }}{% endblock %}
-{% block description %}{{ meta_description }}{% endblock %}
-{% block article %}
+{% extends "layout.html" %} {% block title %}-{{ title }}{% endblock %} {% block
+keywords %}{{ meta_keywords }}{% endblock %} {% block description %}{{
+meta_description }}{% endblock %} {% block article %}
 
-
-
-      <div class="container typed-div">
-          <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-          <div class="hd"><span id="typed"></span></div>
-          <script>
-              const typed = new Typed('#typed', {
-              strings: [
-              {% for t in blog_typed %}
-              '{{ t }}',
-              {% endfor %}
-              ],
-              typeSpeed: 100,
-              backSpeed: 10,
-              backDelay: 100,
-              startDelay: 1000,
-              loop:true
-          });
-          </script>
-
-      </div>
-  
-
-{% for a in articles %}
-<hgroup>
-    <h1>{{ a.title }}</h1>
-     <small>作者:<a href="#">{{ a.author }}</a> | 发表于:{{ a.time }} | 更新于:{{ a.uptime }} | Tag:
-        {% set tags = a.tag.split(",") %}
-        {% for tag in tags %}
-        {{ tag }}
+<div class="container typed-div">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <div class="hd"><span id="typed"></span></div>
+  <script>
+        const typed = new Typed('#typed', {
+        strings: [
+        {% for t in blog_typed %}
+        '{{ t }}',
         {% endfor %}
-    </small>
-    
-</hgroup>
-<p>{{ a.description }}</p>
-<div>
-    <a href="{{ site_url }}{{a.url}}.html" target="_blank" class="readblog">阅读全文>>></a>
+        ],
+        typeSpeed: 100,
+        backSpeed: 10,
+        backDelay: 100,
+        startDelay: 1000,
+        loop:true
+    });
+  </script>
 </div>
 
-<br>
+{% for a in articles %}
+<article>
+  <hgroup>
+    <h1>{{ a.title }}</h1>
+    <small
+      >作者:<a href="#">{{ a.author }}</a> | 发表于:{{ a.time }} | 更新于:{{
+      a.uptime }} | Tag: {% set tags = a.tag.split(",") %} {% for tag in tags %}
+      {{ tag }} {% endfor %}
+    </small>
+  </hgroup>
+  <p>{{ a.description }}</p>
+  <div>
+    <a href="{{ site_url }}{{a.url}}.html" target="_blank" class="readblog"
+      >阅读全文>>></a
+    >
+  </div>
+</article>
 
 {% endfor %}
 
 <div class="container text-center">
-    <div class="row">
-      <div class="col">
-        <a href="{{ prevurl }}" role="button" class="btn btn-primary">Prev</a>
-      </div>
-      <div class="col">
-        <small>{{ page_num }}</small>
-      </div>
-      <div class="col">
-        <a href="{{ nexturl }}" role="button" class="btn btn-primary">Next</a>
-      </div>
+  <div class="row">
+    <div class="col">
+      <a href="{{ prevurl }}" role="button" class="btn btn-primary">Prev</a>
+    </div>
+    <div class="col">
+      <small>{{ page_num }}</small>
+    </div>
+    <div class="col">
+      <a href="{{ nexturl }}" role="button" class="btn btn-primary">Next</a>
     </div>
   </div>
-
+</div>
 
 {% endblock %}
