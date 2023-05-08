@@ -10,6 +10,8 @@
             <title>{{ r.title }}</title>
             <link>{{ site_url }}{{ r.url }}.html</link>
             <author>{{ r.author }}</author>
+            <description>{{ r.description }}</description>
+            <category>{{ r.tag }}</category>
             <pubDate>{{ r.time }}</pubDate>
         </item>
         {% endfor %}
