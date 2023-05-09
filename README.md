@@ -2,9 +2,11 @@
 
 ### 介绍
 这是一款适合程序员的简约blog。
+
 本项目为[碎言静态博客](https://github.com/bosichong/suiyan.git)主题。
 
 [碎言静态博客Gitee](https://gitee.com/J_Sky/suiyan)
+
 [碎言静态博客GitHub](https://github.com/bosichong/suiyan.git)
 
 ### 效果展示
@@ -14,7 +16,7 @@
 
 ### 技术框架
 
-主题模板采用了jinja2的模板引擎，使用了Bootstrap 5.3 等框架，模板设计移动优先。
+主题模板采用了jinja2的模板引擎，使用了Bootstrap5.3等框架，模板设计移动优先。
 
 
 ### 安装教程
@@ -38,7 +40,7 @@
 
 ### github pages
 
-如何部署GitHub pages 搭建自己的博客，这里就不在详细介绍了，请参考下文。
+如何部署GitHub pages 搭建自己的博客，请参考下文。
 
 [GitHub Pages 快速入门](https://docs.github.com/zh/pages/quickstart)
 
