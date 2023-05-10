@@ -1,9 +1,8 @@
 {% extends "layout.html" %}
-{% block title %}{{ blog.title }}{% endblock %}
+{% block title %} {{ blog.title }}{% endblock %}
 {% block keywords %}{% set tags = blog.tag.split(",") %}{% for tag in tags %}{{ tag }}{% endfor %}{% endblock %}
 {% block description %}{{ blog.description }}{% endblock %}
 {% block article %}
-
 
 
 <hgroup>
@@ -16,6 +15,36 @@
     </small>
 </hgroup>
 <p>{{ data }}</p>
+
+<hr>
+<div class="blog_footer">
+    <div class="prev_next">
+        {% if pn.prev != None %}
+        <a href="{{ site_url }}{{pn.prev.url}}.html" class="text-truncate">< <span>{{ pn.prev.title }}</span></a>
+        {% endif %}
+
+        {% if pn.next != None %}
+        <a href="{{ site_url }}{{pn.next.url}}.html" class="text-truncate"><span>{{ pn.next.title }}</span> ></a>
+        {% endif %}
+    </div>
+    {% if related != None %}
+    <div class="related">
+
+        <p>
+            相关文章：
+        </p>
+        <ul>
+            {% for t in related %}
+            <li>
+                <a href="{{ site_url }}{{t.url}}.html" class="text-truncate "><span>{{ t.title }}</span></a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    {% endif %}
+
+</div>
 
 
 <link rel="stylesheet"
