@@ -16,32 +16,27 @@
     </header>
     <br>
 
-    <div class="accordion" id="accordionExample">
+    <div class="tags container-fluid">
+      {% set btntype =["btn-outline-primary","btn btn-outline-success","btn-outline-danger",
+      "btn-outline-warning","btn-outline-info","btn-outline-light","btn-outline-secondary"] %}
       {% for tag in tags  %}
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="heading{{ loop.index }}">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapseTwo">
+      <button class="m-2 tag btn {{ btntype | random }}" type="button" data-tag="tagdata{{ loop.index }}">
             {{ tag.tag }}
           </button>
-        </h2>
-        <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <ul class="list-group">
-              {% for a in tag.data %}
-              <li class="list-group-item">
-                  <a href="{{ site_url }}{{a.url}}.html" target="_blank">
-                 {{ a.title }}
-                </a>
-                  <span>
-                 {{ a.time }}
-                </span>
-              </li>
-              {% endfor %}
+          <ul class="tagdata tagdata{{ loop.index }} list-group" style="display:none;">
+          {% for a in tag.data %}
+          <li class="list-group-item">
+          <a href="{{ site_url }}{{a.url}}.html">{{ a.title }}</a>
+          <span>
+            {{ a.time }}
+           </span>
+          {% endfor %}
           </ul>
-          </div>
-        </div>
-      </div>
       {% endfor %}
-      </div>
+
+    </div>
+
+    
+    <script src="{{ site_url }}assets/js/tag.js"></script>
 
 {% endblock %}
