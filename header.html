@@ -2,9 +2,12 @@
     <div class="profile">
         <img src="{{ site_url }}{{ profile_image }}" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="{{ site_url }}">{{ blog_author }}</a></h1>
+        <p class="blog-description">
+            {{ blog_description_en }}
+          </p>
         <div class="social-links mt-3 text-center">
             {% for sns in blog_sns %}
-            <a href="{{ sns.url }}" target="_blank"><i class="bi bi-{{ sns.ico }}"></i></a>
+            <a href="{{ sns.url }}" target="_blank"><i class="fa fa-{{ sns.ico }}"></i></a>
             {% endfor %}
         </div>
     </div>
@@ -12,7 +15,7 @@
     <nav id="navbar" class="nav-menu navbar">
         <ul>
             {% for nav in nav %}
-            <li><a href="{{ site_url }}{{ nav.url }}" class="nav-link scrollto active"><i class="bi bi-{{ nav.ico }}"></i>
+            <li><a href="{{ site_url }}{{ nav.url }}" class="nav-link scrollto active"><i class="fa fa-{{ nav.ico }}"></i>
                 <span>{{ nav.text }}</span></a></li>
             {% endfor %}
         </ul>
