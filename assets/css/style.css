@@ -2,6 +2,29 @@
   --bs-body-font-size: 1.2rem;
   --bs-body-color: hsl(205deg, 16%, 77%);
   --bs-body-bg: #11191f;
+  --rainbow-gradient: linear-gradient(
+    -90deg,
+    #602ce5 0,
+    #2ce597 30%,
+    #e7bb18 50%,
+    #ff7657 70%,
+    #45c1ee 90%,
+    #2ce597 100%
+  );
+}
+
+h1,
+.mobile-nav-toggle ,
+.back-to-top{
+  background-image: var(--rainbow-gradient, #fff);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  filter: drop-shadow(0 0 2rem #000);
+  text-shadow: none !important;
 }
 
 .modal-backdrop {
@@ -53,7 +76,6 @@ small {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #149ddd;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -66,10 +88,6 @@ small {
   line-height: 0;
 }
 
-.back-to-top:hover {
-  background: #2eafec;
-  color: #fff;
-}
 
 .back-to-top.active {
   visibility: visible;
@@ -97,7 +115,6 @@ small {
   margin: 15px auto;
   display: block;
   width: 120px;
-
 }
 
 #header .profile h1 {
@@ -110,7 +127,7 @@ small {
   font-family: "Poppins", sans-serif;
 }
 
-#header .blog-description{
+#header .blog-description {
   text-align: center;
 }
 
@@ -121,10 +138,12 @@ small {
   color: coral;
   text-decoration: none;
   font-weight: 300;
+  -webkit-text-fill-color: coral;
+  -moz-text-fill-color: coral;
 }
 
 #header .profile .social-links a {
-  font-size: 36px;
+  font-size: 32px;
   display: inline-block;
   color: #149ddd;
   line-height: 1;
@@ -138,7 +157,8 @@ small {
 }
 
 #header .profile .social-links a:hover {
-  background: #212431;
+  font-size: 40px;
+  background: none;
   color: coral;
   text-decoration: none;
 }
@@ -171,7 +191,7 @@ small {
   list-style: none;
 }
 
-.nav-menu ul{
+.nav-menu ul {
   padding-left: 0px;
 }
 
@@ -216,7 +236,6 @@ small {
   font-size: 24px;
   transition: all 0.4s;
   outline: none !important;
-  background-color: #149ddd;
   color: #fff;
   width: 40px;
   height: 40px;
@@ -1241,6 +1260,49 @@ section {
   font-size: 1.3rem;
 }
 
-.article{
-  margin-bottom: 1rem;
+.article {
+  margin: 1.5rem 0;
+}
+
+/* 搜索框移动端适配 */
+
+.blog-search {
+  position: fixed;
+  top: 1rem;
+  right: 60px;
+  width: 400px;
+  z-index: 500;
+  transition: all 1s ease-in-out;
+}
+
+.blog-search:hover {
+  width: 600px;
+}
+
+#search-btn {
+  width: auto;
+}
+
+@media (max-width: 1000px) {
+  .blog-search {
+    position: initial;
+    top: 1rem;
+    right: 60px;
+    width: auto;
+    z-index: 500;
+  }
+  #search-btn {
+    width: 58px;
+  }
+  .blog-search:hover {
+    width: auto;
+  }
+}
+/* header 资料区 */
+.h-top {
+  margin-top: 30px;
+}
+
+.blog-info {
+  margin-top: 50px;
 }
