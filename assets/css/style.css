@@ -1,6 +1,7 @@
 :root {
   --bs-body-font-size: 1.2rem;
-  --bs-body-color: hsl(205deg, 16%, 77%);
+  --bs-body-color: #bbb;
+  --bs-a-color:darkseagreen;
   --bs-body-bg: #11191f;
   --rainbow-gradient: linear-gradient(
     -90deg,
@@ -14,6 +15,7 @@
 }
 
 h1,
+.blog-h3,
 .mobile-nav-toggle ,
 .back-to-top{
   background-image: var(--rainbow-gradient, #fff);
@@ -40,12 +42,12 @@ body {
 
 a {
   display: inline-block;
-  color: #149ddd;
+  color: var(--bs-a-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: #37b3ed;
+  color: coral;
   text-decoration: none;
 }
 
@@ -104,7 +106,7 @@ small {
   bottom: 0;
   width: 300px;
   transition: all ease-in-out 0.5s;
-  z-index: 997;
+  z-index: 555;
   transition: all 0.5s;
   padding: 0 15px;
   background: #040b14;
@@ -129,12 +131,19 @@ small {
 
 #header .blog-description {
   text-align: center;
+  font-size: 14px;
+  margin-top: 1rem;
+  color: darkseagreen;
 }
 
-#header .profile h1 a {
+#header .profile .blog_author {
+  text-align: center;
+}
+
+#header .profile .blog_author a {
   font-weight: 200;
 }
-#header .profile h1 a:hover {
+#header .profile .blog_author a:hover {
   color: coral;
   text-decoration: none;
   font-weight: 300;
@@ -145,7 +154,6 @@ small {
 #header .profile .social-links a {
   font-size: 32px;
   display: inline-block;
-  color: #149ddd;
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -167,9 +175,10 @@ small {
   margin-left: 300px;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 888px) {
   #header {
-    left: -300px;
+    width: 100vw;
+    bottom: 100vh;
   }
 
   #main {
@@ -201,28 +210,27 @@ small {
   border-radius: 1px;
 }
 
-.nav-menu a {
+#navbar a {
   display: flex;
   align-items: center;
-  color: #149ddd;
   padding: 4px;
   margin-bottom: 5px;
   transition: 0.5s;
   font-size: 14px;
+  color: var(--bs-a-color);
 }
 
-.nav-menu a:hover {
+#navbar a:hover {
   color: coral;
   font-size: 16px;
 }
 
-.nav-menu a i {
+#navbar a i {
   font-size: 24px;
   padding-right: 8px;
-  color: #149ddd;
   transition: 0.5s;
 }
-.nav-menu a:hover i {
+#navbar a:hover i {
   color: coral;
 }
 
@@ -231,7 +239,7 @@ small {
   position: fixed;
   right: 15px;
   top: 15px;
-  z-index: 958;
+  z-index: 666;
   border: 0;
   font-size: 24px;
   transition: all 0.4s;
@@ -239,12 +247,12 @@ small {
   color: #fff;
   width: 40px;
   height: 40px;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
   border-radius: 3px;
   cursor: pointer;
+  display: none;
 }
 
 .mobile-nav-active {
@@ -252,7 +260,13 @@ small {
 }
 
 .mobile-nav-active #header {
-  left: 0;
+  bottom: 0;
+}
+
+@media (max-width: 888px) {
+  .mobile-nav-toggle {
+    display: flex;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1122,7 +1136,7 @@ section {
   color: #eaebf0;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 888px) {
   #footer {
     position: static;
     width: auto;
@@ -1171,17 +1185,20 @@ section {
 }
 
 .artlist {
+  margin: 18px;
   background: #11191f;
   padding: 1rem;
   margin-bottom: 12px;
   position: relative;
-  border-radius: 6px;
+  border-radius: 8px;
   animation: none;
   opacity: 1;
 }
 
+
 .artlist:hover {
   opacity: 1;
+  color: #eee;
 }
 
 .artlist:hover:before {
@@ -1206,7 +1223,7 @@ section {
   z-index: -1;
   top: -2px;
   left: -2px;
-  animation: spin 2.5s linear infinite;
+  animation: spin 3s ease-in-out infinite;
 }
 @keyframes spin {
   0% {
@@ -1267,20 +1284,37 @@ section {
 /* 搜索框移动端适配 */
 
 .blog-search {
+  display: flex;
   position: fixed;
   top: 1rem;
-  right: 60px;
-  width: 400px;
+  right: 10px;
+  width: 300px;
   z-index: 500;
   transition: all 1s ease-in-out;
 }
 
-.blog-search:hover {
-  width: 600px;
+
+#search-input{
+  height: 34px;
+  background: none;
+  border: 1px solid var(--bs-a-color);
+}
+
+
+#search-input:focus-visible{
+  border: none;
+  
 }
 
 #search-btn {
-  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: 1px solid var(--bs-a-color);
+  color: var(--bs-a-color);
 }
 
 @media (max-width: 1000px) {
@@ -1288,14 +1322,12 @@ section {
     position: initial;
     top: 1rem;
     right: 60px;
-    width: auto;
     z-index: 500;
+    margin: 0 auto;
   }
   #search-btn {
-    width: 58px;
-  }
-  .blog-search:hover {
-    width: auto;
+    width: 34px;
+    height: 34px;
   }
 }
 /* header 资料区 */

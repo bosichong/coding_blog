@@ -1,7 +1,9 @@
+
+<header id="header">
 <div class="h-top d-flex flex-column">
     <div class="profile">
         <img src="{{ site_url }}{{ profile_image }}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="{{ site_url }}">{{ blog_author }}</a></h1>
+        <h3 class="blog_author text-light"><a href="{{ site_url }}">{{ blog_author }}</a></h3>
         <p class="blog-description">
             {{ blog_description_en }}
           </p>
@@ -24,37 +26,37 @@
 
     
         <div class="blog-search">
-            <div class="input-group mb-3">
-                <input class="form-control" id="search-input" type="text" placeholder="JavaScript">
-                <button type="button" id="search-btn" class="btn btn-outline-info vibrate-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-search"></i></button>
+            <input id="search-input" type="text" placeholder="JavaScript">
+            <button type="button" id="search-btn" class="vibrate-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">搜索结果</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">搜索结果</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <article>
+                    <a href="#close"
+                       aria-label="Close"
+                       class="close"
+                       data-target="modal-example"
+                       onClick="toggleModal(event)">
+                    </a>
+                    <div id="modal" style="display: none;">
+                        <ul id="result-list"></ul>
                     </div>
-                    <div class="modal-body">
-                        <article>
-                            <a href="#close"
-                               aria-label="Close"
-                               class="close"
-                               data-target="modal-example"
-                               onClick="toggleModal(event)">
-                            </a>
-                            <div id="modal" style="display: none;">
-                                <ul id="result-list"></ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                </div>
+                </article>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
+        </div>
+    </div>

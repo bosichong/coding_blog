@@ -1,8 +1,8 @@
 {
-    "dev": 0,
-    "blog_name": "碎言博客",
+    "dev": 1,
+    "blog_name": "博客名称",
     "blog_name_en": "SuiYan",
-    "blog_author": "J.sky",
+    "blog_author": "站长大名",
     "blog_description_en": "You see see you , This one day day di.",
     "blog_typed": [
         "Life is short, you need Python",
@@ -18,15 +18,15 @@
         "Readability counts.",
         "可读性很重要."
     ],
-    "meta_description": " Python Django JavaScript 学习讨论,我们是一群热爱Python、JavaScript的程序员，人生苦短，我用JavaScript！一个不会JavaScript的Python开发者不是一个好网管。",
+    "meta_description": " Python Django JavaScript 学习讨论,我们是一群热爱Python的程序员，人生苦短，我用JavaScript！一个不会JavaScript的Python开发者不是一个好网管。",
     "meta_keywords":"Python,Django,JavaScript,程序员,人生苦短,我用Python",
     "profile_image":"assets/images/avatar.jpg",
     "blog_bg": "assets/images/bg.jpg",
-    "theme": "my_blog",
-    "build": "blog",
+    "theme": "coding_blog",
+    "build": "test_blog",
     "md_dir": "articles",
     "blog_page_num":8,
-    "blog_test_url":"http://127.0.0.1:5501/",
+    "blog_test_url":"http://127.0.0.1:5500/",
     "blog_url":"https://suiyan.cc/",
     "blog_sns": [
         {
@@ -38,43 +38,38 @@
             "url": "https://gitee.com/J_Sky/suiyan"
         },
         {
-            "ico": "envelope",
-            "url": "mailto:285911@gmail.com"
+            "ico": "tencent-qq",
+            "url": "https://user.qzone.qq.com/285911/"
         },
         {
             "ico": "book",
             "url": "https://www.zhihu.com/people/J_sky/activities"
         },
         {
-            "ico": "rss-square",
+            "ico": "rss",
             "url": "https://suiyan.cc/rss.xml"
         }
     ],
     "nav": [
         {
-            "ico": "home",
-            "text": "Home",
-            "url": ""
+            "ico": "house-heart-fill",
+            "text": "Blog Home",
+            "url": "index.html"
         },
         {
             "ico": "archive",
-            "text": "Archive",
+            "text": "Blog Archive",
             "url": "archives.html"
         },
         {
             "ico": "tags",
-            "text": "Tags",
+            "text": "Blog Tag",
             "url": "tags.html"
         },
         {
-            "ico": "user-md",
+            "ico": "person-circle",
             "text": "About Me",
-            "url": "before-2022/1.html"
-        },
-        {
-            "ico": "link",
-            "text": "Links",
-            "url": "links.html"
+            "url": "aboutme.html"
         }
     ]
 

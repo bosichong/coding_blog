@@ -3,7 +3,7 @@
     {% for s in sitemap_data %}
     <url>
         <loc>{{ site_url }}{{ s.url }}.html</loc>
-        <lastmod>{{ s.time }}</lastmod>
+        <lastmod>{{ s.uptime }}</lastmod>
     </url>
     {% endfor %}
 </urlset>
